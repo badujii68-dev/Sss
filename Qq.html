@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Neon Cyber Vault</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI, sans-serif;
+    background:#020617;
+    color:#e5e7eb;
+}
+header{
+    text-align:center;
+    padding:30px;
+}
+header h1{
+    color:#22d3ee;
+    text-shadow:0 0 20px #22d3ee;
+}
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:20px;
+}
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 15px #22d3ee55;
+}
+.card h2{color:#38bdf8;}
+button{
+    background:transparent;
+    border:2px solid #22d3ee;
+    color:#22d3ee;
+    padding:10px 20px;
+    border-radius:25px;
+    cursor:pointer;
+}
+button:hover{
+    background:#22d3ee;
+    color:#000;
+}
+.terminal{
+    background:#000;
+    margin:20px;
+    padding:20px;
+    border-radius:10px;
+    font-family:monospace;
+    box-shadow:0 0 20px #22d3ee;
+}
+input{
+    padding:10px;
+    width:90%;
+    border-radius:5px;
+    border:none;
+}
+footer{
+    text-align:center;
+    padding:10px;
+    color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🕶️ NEON CYBER VAULT</h1>
+<p>Secure • Aware • Legal</p>
+</header>
+
+<div class="container">
+<div class="card">
+<h2>🔐 Info Security</h2>
+<p>Data lai unauthorized access bata protect garne process.</p>
+</div>
+
+<div class="card">
+<h2>⚖️ Cyber Law</h2>
+<p>Electronic Transactions Act (ETA) 2063 Nepal ko cyber kanoon ho.</p>
+</div>
+</div>
+
+<!-- TERMINAL -->
+<div class="terminal" id="terminal">
+<p><span style="color:#22d3ee;">root@vault:</span>$ Ready...</p>
+<button onclick="runScan()">RUN SECURITY CHECK</button>
+</div>
+
+<!-- PASSWORD CHECK -->
+<div class="card">
+<h2>🔑 Password Check</h2>
+<input type="text" id="pass" placeholder="Enter password">
+<br><br>
+<button onclick="checkPass()">Check</button>
+<p id="passResult"></p>
+</div>
+
+<!-- QUIZ -->
+<div class="card">
+<h2>🧠 Cyber Quiz</h2>
+<p>ETA 2063 k sanga related xa?</p>
+<button onclick="quiz(true)">Cyber Law</button>
+<button onclick="quiz(false)">Hardware</button>
+<p id="quizResult"></p>
+</div>
+
+<footer>
+© 2026 Neon Cyber Vault ⚡
+</footer>
+
+<script>
+// Fake scan
+function runScan(){
+    let t=document.getElementById("terminal");
+    t.innerHTML="<p>Scanning system...</p>";
+    setTimeout(()=>t.innerHTML+="<p>Checking firewall...</p>",1000);
+    setTimeout(()=>t.innerHTML+="<p>No threats found ✅</p>",2000);
+    setTimeout(()=>t.innerHTML+="<p>System Secure 🔒</p>",3000);
+}
+
+// Password check
+function checkPass(){
+    let p=document.getElementById("pass").value;
+    let r=document.getElementById("passResult");
+    if(p.length<6){
+        r.innerHTML="❌ Weak Password";
+        r.style.color="red";
+    }else if(p.length<10){
+        r.innerHTML="⚠️ Medium Password";
+        r.style.color="orange";
+    }else{
+        r.innerHTML="✅ Strong Password";
+        r.style.color="lightgreen";
+    }
+}
+
+// Quiz
+function quiz(correct){
+    let q=document.getElementById("quizResult");
+    if(correct){
+        q.innerHTML="✅ Correct! ETA 2063 is Cyber Law.";
+        q.style.color="lightgreen";
+    }else{
+        q.innerHTML="❌ Wrong answer.";
+        q.style.color="red";
+    }
+}
+</script>
+
+</body>
+</html>
