@@ -1,68 +1,72 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Neon Cyber Vault</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Segoe UI, sans-serif;
-    background:#020617;
-    color:#e5e7eb;
-}
-header{
-    text-align:center;
-    padding:30px;
-}
-header h1{
-    color:#22d3ee;
-    text-shadow:0 0 20px #22d3ee;
-}
-.container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    padding:20px;
-}
-.card{
-    background:rgba(255,255,255,0.05);
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 0 15px #22d3ee55;
-}
-.card h2{color:#38bdf8;}
-button{
-    background:transparent;
-    border:2px solid #22d3ee;
-    color:#22d3ee;
-    padding:10px 20px;
-    border-radius:25px;
-    cursor:pointer;
-}
-button:hover{
-    background:#22d3ee;
-    color:#000;
-}
-.terminal{
-    background:#000;
-    margin:20px;
-    padding:20px;
-    border-radius:10px;
-    font-family:monospace;
-    box-shadow:0 0 20px #22d3ee;
-}
-input{
-    padding:10px;
-    width:90%;
-    border-radius:5px;
-    border:none;
-}
-footer{
-    text-align:center;
-    padding:10px;
-    color:#64748b;
-}
-</style>
+    <title>Secret Page</title>
+    <style>
+        body{
+            font-family: Arial;
+            background:#111;
+            color:white;
+            text-align:center;
+        }
+        .box{
+            margin-top:120px;
+        }
+        input{
+            padding:10px;
+            width:220px;
+            margin:5px;
+        }
+        button{
+            padding:10px 25px;
+            background:red;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+        .secret{
+            display:none;
+            margin-top:100px;
+        }
+    </style>
 </head>
-
 <body>
+
+<!-- LOGIN PART -->
+<div class="box" id="loginBox">
+    <h2>🔐 Login Required</h2>
+    <input type="text" id="user" placeholder="Username"><br>
+    <input type="password" id="pass" placeholder="Password"><br>
+    <button onclick="checkLogin()">Login</button>
+    <p id="msg"></p>
+</div>
+
+<!-- SECRET CONTENT -->
+<div class="secret" id="secretBox">
+    <h1>🔥 Welcome Boss 😎</h1>
+    <p>Yo content login paxi matrai dekhinxa</p>
+
+    <!-- Aafno man ko content yaha rakha 👇 -->
+    <h2>💡 My Secret Page</h2>
+    <p>Maile j man lagyo tei dekhauxu 😁</p>
+
+    <img src="https://picsum.photos/300" alt="Random Image">
+</div>
+
+<script>
+function checkLogin(){
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
+
+    if(u === "admin" && p === "1234"){
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("secretBox").style.display = "block";
+    }else{
+        document.getElementById("msg").innerHTML = "❌ Wrong login";
+        document.getElementById("msg").style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>
